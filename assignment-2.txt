@@ -1,0 +1,59 @@
+Que: 01
+$in
+
+Syntax: db.people.find({age:{$in:[20,27]}}).pretty()
+
+-------------------------------------------------------
+Que: 02
+$all
+
+Syntax: db.people.find({"sonName":{$all:["Rahul"]}}).pretty() 
+
+----------------------------------------------------------------------
+
+Que: 03
+$and
+
+Syntax: db.people.find({$and:[{native:"United States"},{relocate_to:"Russia"}]}).pretty()
+-----------------------------------------------------------------------------------------------
+Que: 04
+$or
+
+Syntax: db.people.find({$or:[{native:"United States"},{relocate_to:"Russia"}]}).pretty()
+-----------------------------------------------------------------------------------------------
+Que: 05
+$set
+
+Syntax: db.people.updateOne({id:17},{$set:{sonName:["Rahul","Krunal","Raja"]}});
+
+----------------------------------------------------------------------------------------
+
+Que: 06
+$rename
+
+Syntax: db.people.updateMany({},{$rename:{"native":"Country"}})
+----------------------------------------------------------------------------
+Que: 07
+$push
+
+Syntax: db.people.updateOne({id:19},{$push: {sonName:"Albert"}});
+
+-----------------------------------------------------------------------
+
+Que: 07
+$pop
+
+Syntax: From end: db.people.updateOne({id:19},{$pop: {sonName:1}});
+        From Front: db.people.updateOne({id:19},{$pop: {sonName:-1}});
+----------------------------------------------------------------------------
+Que: 08
+$min
+Syntax: db.people.updateMany({},{$min:{family_members:2}})
+--------------------------------------------------------------------------------
+Que: 09
+$max
+Syntax: db.people.updateMany({},{$max:{family_members:4}})
+-------------------------------------------------------------------
+Que: 10
+$unset
+Syntax: db.people.updateMany({},{$unset:{family_members:""}});
